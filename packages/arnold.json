@@ -1,0 +1,13 @@
+{
+    "enable": "$RENDERER == 'arnold'",
+    "env" : 
+    [
+        {
+            "HOUDINI_PATH" : 
+            [
+                {"houdini_os == 'linux'" : "/opt/solidangle/htoa/htoa-${HTOA_VER}_houdini-${HOUDINI_VERSION}/htoa-${HTOA_VER}_houdini-${HOUDINI_VERSION}"},
+                {"houdini_os == 'windows'" : "/opt/solidangle/htoa/htoa-${HTOA_VER}_houdini-${HOUDINI_VERSION}/htoa-${HTOA_VER}_houdini-${HOUDINI_VERSION}"}
+            ]
+        }
+    ]
+}

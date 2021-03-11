@@ -1,0 +1,15 @@
+{
+    "load_package_once": true, 
+    "env": 
+    [
+        {
+            "HOUDINI_PATH": 
+            {
+                "method": "prepend", 
+                "value": [
+                    "$HOME/houdini-ovm"
+                ]
+            }
+        }
+    ]
+}
