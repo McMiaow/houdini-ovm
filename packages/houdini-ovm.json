@@ -6,7 +6,8 @@
             "HOUDINI_PATH": 
             {
                 "method": "prepend", 
-                "value": [
+                "value": 
+                [
                     "$HOME/houdini-ovm"
                 ]
             }

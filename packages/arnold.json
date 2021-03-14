@@ -5,9 +5,20 @@
         {
             "HOUDINI_PATH" : 
             [
-                {"houdini_os == 'linux'" : "/opt/solidangle/htoa/htoa-${HTOA_VER}_houdini-${HOUDINI_VERSION}/htoa-${HTOA_VER}_houdini-${HOUDINI_VERSION}"},
-                {"houdini_os == 'windows'" : "/opt/solidangle/htoa/htoa-${HTOA_VER}_houdini-${HOUDINI_VERSION}/htoa-${HTOA_VER}_houdini-${HOUDINI_VERSION}"}
+                {"houdini_os == 'linux'" : "/opt/solidangle/htoa/htoa-${HTOA_VER}_houdini-${HOUDINI_HTOA_VER}/htoa-${HTOA_VER}_houdini-${HOUDINI_HTOA_VER}"},
+                {"houdini_os == 'windows'" : "C:/solidangle/htoa/htoa-${HTOA_VER}_houdini-${HOUDINI_HTOA_VER}/htoa-${HTOA_VER}_houdini-${HOUDINI_HTOA_VER}"}
             ]
+        },
+        {
+            "enable": "houdini_os == 'windows'",
+            "PATH" :
+            {
+                "method": "append", 
+                "value": 
+                [
+                    "C:/solidangle/htoa/htoa-${HTOA_VER}_houdini-${HOUDINI_HTOA_VER}/htoa-${HTOA_VER}_houdini-${HOUDINI_HTOA_VER}/scripts/bin"
+                ]
+            }
         }
     ]
 }

@@ -1,4 +1,4 @@
 #!/bin/bash
 RENDERER=renderman
 echo Using $RENDERER
-/opt/hfs$RFH_VER/bin/hindie
+/opt/hfs$HOUDINI_RFH_VER/bin/hindie

@@ -1,4 +1,4 @@
 #!/bin/bash
 RENDERER=arnold
 echo Using $RENDERER
-/opt/hfs$HOUDINI_VER/bin/hindie
+/opt/hfs$HOUDINI_HTOA_VER/bin/hindie

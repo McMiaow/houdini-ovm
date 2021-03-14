@@ -1,10 +1,22 @@
 {
     "env" : 
     [
-        {"VISUAL" : "code -w"},
-        {"EDITOR" : "/usr/bin/code"},
+        {"OVM_OTL_PATH" : "$HOME/houdini-ovm/otls"},
         {"HOUDINI_EXTERNAL_HELP_BROWSER" : 1},
         {"HOUDINI_VEX_PATH" : "$HOME/houdini-ovm/VEX"},
-        {"OVM_OTL_PATH" : "$HOME/houdini-ovm/otls"}
+        {
+            "VISUAL" :
+            [
+                {"houdini_os == 'linux'" : "code -w"},
+                {"houdini_os == 'windows'" : "C:/Users/omarv/AppData/Local/Programs/Microsoft VS Code/Code.exe"}
+            ]            
+        },
+        {
+            "EDITOR" :
+            [
+                {"houdini_os == 'linux'" : "/usr/bin/code"},
+                {"houdini_os == 'windows'" : "C:/Users/omarv/AppData/Local/Programs/Microsoft VS Code/Code.exe"}
+            ]            
+        }
     ]
 }

@@ -1,22 +1,28 @@
 {
     "enable": "$RENDERER == 'renderman'",
-    "env" : 
+    "env" :
     [
         {
             "RMANTREE" :
             [
                 {"houdini_os == 'linux'" : "/opt/pixar/RenderManProServer-${RMAN_VER}"},
-                {"houdini_os == 'windows'" : "/opt/pixar/RenderManProServer-${RMAN_VER}"}
+                {"houdini_os == 'windows'" : "C:/Program Files/Pixar/RenderManProServer-${RMAN_VER}"}
             ]
         },
         {
-            "RFHTREE" : 
+            "RFHTREE" :
             [
                 {"houdini_os == 'linux'" : "/opt/pixar/RenderManForHoudini-${RMAN_VER}"},
-                {"houdini_os == 'windows'" : "/opt/pixar/RenderManForHoudini-${RMAN_VER}"}
+                {"houdini_os == 'windows'" : "C:/Program Files/Pixar/RenderManForHoudini-${RMAN_VER}"}
             ]
         },
-        {"RMAN_PROCEDURALPATH" : "$RFHTREE/${RFH_VER}/openvdb"},
-        {"HOUDINI_PATH" : "$RFHTREE/${RFH_VER}"}
+        {"RMAN_PROCEDURALPATH" : "$RFHTREE/${HOUDINI_RFH_VER}/openvdb"},
+        {"HOUDINI_PATH" : "$RFHTREE/${HOUDINI_RFH_VER}"},
+        {
+            "PATH" :
+            [
+                {"houdini_os == 'windows'" : "$RMANTREE/bin"}
+            ]
+        }
     ]
 }
