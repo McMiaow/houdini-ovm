@@ -1,0 +1,12 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.8.2.pixar1697a56
+# options: -o /home/omar-vm/houdini-ovm/OSL/ovm_add_color_1.oso
+shader ovm_addColor
+param	color	input1	1 1 1		%read{0,0} %write{2147483647,-1}
+param	color	input2	0 0 0		%read{0,0} %write{2147483647,-1}
+oparam	color	result	1 1 1		%read{2147483647,-1} %write{0,0}
+code ___main___
+# houdini-ovm/OSL/ovm_add_color_1.osl:10
+# }
+	add		result input1 input2 	%filename{"houdini-ovm/OSL/ovm_add_color_1.osl"} %line{10} %argrw{"wrr"}
+	end

@@ -23,6 +23,8 @@
             [
                 {"houdini_os == 'windows'" : "$RMANTREE/bin"}
             ]
-        }
+        },
+        {"RMAN_SHADERPATH" : "$OVM_OSL_PATH"},
+        {"RFH_ARGS2HDA" : "1"}
     ]
 }

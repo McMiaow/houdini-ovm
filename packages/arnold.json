@@ -19,6 +19,13 @@
                     "C:/solidangle/htoa/htoa-${HTOA_VER}_houdini-${HOUDINI_HTOA_VER}/htoa-${HTOA_VER}_houdini-${HOUDINI_HTOA_VER}/scripts/bin"
                 ]
             }
+        },
+        {
+            "ARNOLD_PLUGIN_PATH" : 
+            [
+                {"houdini_os == 'linux'" : "/opt/solidangle/lentil_v1.7_20210207/bin/linux"},
+                {"houdini_os == 'windows'" : "C:/solidangle/lentil_v1.7_20210207/bin/windows"}
+            ]
         }
     ]
 }

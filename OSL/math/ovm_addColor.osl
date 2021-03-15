@@ -1,0 +1,10 @@
+shader ovm_addColor
+(
+    color input1 = 1,
+    color input2 = 0,
+    output color result = 1
+
+)
+{
+    result = input1 + input2;
+}
