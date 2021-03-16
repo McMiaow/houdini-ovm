@@ -1,4 +1,4 @@
-shader ovm_addColor
+shader ovm_Add_Color
 (
     color input1 = 1,
     color input2 = 0,

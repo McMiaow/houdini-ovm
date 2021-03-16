@@ -26,6 +26,8 @@
                 {"houdini_os == 'linux'" : "/opt/solidangle/lentil_v1.7_20210207/bin/linux"},
                 {"houdini_os == 'windows'" : "C:/solidangle/lentil_v1.7_20210207/bin/windows"}
             ]
-        }
+            
+        },
+        {"ARNOLD_PLUGIN_PATH" : "$OVM_OSL_PATH/math"}
     ]
 }
