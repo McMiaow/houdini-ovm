@@ -1,0 +1,25 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.8.2.pixar1697a56
+# options: -o /home/omar-vm/houdini-ovm/OSL/test_maya_example.oso
+shader test_sample_osl_pattern
+param	float	noiseScale	1		%meta{float,min,0.001} %meta{float,slidermax,10}  %read{0,0} %write{2147483647,-1} %derivs
+param	string	noiseType	"cell"		%meta{string,widget,"popup"} %meta{string,options,"perlin|uperlin|cell|simplex|usimplex|gabor"}  %read{1,1} %write{2147483647,-1}
+param	int	gAnisotropic	1		%meta{string,widget,"checkBox"} %meta{string,label,"Gabor Anisotropic"}  %read{1,1} %write{2147483647,-1}
+param	vector	gDirection	1 1 1		%meta{string,label,"Gabor Direction"}  %read{1,1} %write{2147483647,-1}
+oparam	color	outColor	0 0 0		%read{2147483647,-1} %write{3,3}
+global	point	P	%read{0,0} %write{2147483647,-1} %derivs
+temp	float	$tmp1	%read{3,3} %write{2,2}
+temp	float	$tmp2	%read{2,2} %write{1,1}
+temp	point	$tmp3	%read{1,1} %write{0,0} %derivs
+const	string	$const1	"anisotropic"		%read{1,1} %write{2147483647,-1}
+const	string	$const2	"direction"		%read{1,1} %write{2147483647,-1}
+code ___main___
+# houdini-ovm/OSL/test_maya_example.osl:16
+#                                                    "anisotropic", gAnisotropic,
+	div		$tmp3 P noiseScale 	%filename{"houdini-ovm/OSL/test_maya_example.osl"} %line{16} %argrw{"wrr"}
+# houdini-ovm/OSL/test_maya_example.osl:18
+# }
+	noise		$tmp2 noiseType $tmp3 $const1 gAnisotropic $const2 gDirection 	%line{18} %argrw{"wrrrrrr"} %argderivs{2}
+	assign		$tmp1 $tmp2 	%argrw{"wr"}
+	assign		outColor $tmp1 	%argrw{"wr"}
+	end

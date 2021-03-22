@@ -1,0 +1,14 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.8.2.pixar1697a56
+# options: -o /home/omar-vm/houdini-ovm/OSL/ovm_Compare.oso
+shader ovm_Compare
+param	float	input1	1		%read{2147483647,-1} %write{2147483647,-1}
+param	float	input2	0		%read{2147483647,-1} %write{2147483647,-1}
+param	int	operation	0		%meta{string,widget,"popup"} %meta{string,options,"Equal ==|Not Equal !=|Less Than <|Greater Than >|Less Than or Equal <=|Greater Than or Equal >=|"}  %read{2147483647,-1} %write{2147483647,-1}
+oparam	float	result	1		%read{2147483647,-1} %write{0,0}
+const	int	$const1	0		%read{0,0} %write{2147483647,-1}
+code ___main___
+# houdini-ovm/OSL/ovm_Compare.osl:14
+# }
+	assign		result $const1 	%filename{"houdini-ovm/OSL/ovm_Compare.osl"} %line{14} %argrw{"wr"}
+	end

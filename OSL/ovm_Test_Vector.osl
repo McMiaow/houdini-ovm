@@ -1,0 +1,14 @@
+shader ovm_Test_Vector
+(
+    vector input1 = 1,
+    point input2 = 1,
+    normal input3 = 1,
+    output vector result1 = 1,
+    output point result2 = 1,
+    output normal result3 = 1
+)
+{
+    result1 = input1;
+    result2 = input2;
+    result3 = input3;
+}

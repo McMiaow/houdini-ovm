@@ -1,0 +1,17 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.8.2.pixar1697a56
+# options: -o /home/omar-vm/houdini-ovm/OSL/ovm_surface_globals.oso
+shader ovm_Surface_Globals
+oparam	vector	Pos	1 1 1		%read{2147483647,-1} %write{1,1}
+global	point	P	%read{1,1} %write{2147483647,-1}
+const	string	$const1	"world"		%read{1,1} %write{2147483647,-1}
+const	string	$const2	"transform"		%read{0,0} %write{2147483647,-1}
+const	string	$const3	"common"		%read{1,1} %write{2147483647,-1}
+code ___main___
+# houdini-ovm/OSL/ovm_surface_globals.osl:7
+# }
+	functioncall	$const2 2 	%filename{"houdini-ovm/OSL/ovm_surface_globals.osl"} %line{7} %argrw{"r"}
+# /opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h:258
+# vector transform (matrix Mto, vector p) BUILTIN;
+	transform	Pos $const3 $const1 P 	%filename{"/opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h"} %line{258} %argrw{"wrrr"}
+	end

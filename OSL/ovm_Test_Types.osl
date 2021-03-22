@@ -1,0 +1,23 @@
+shader ovm_Test_Types
+(
+    int int_i = 1,
+    float float_i = 1,
+    color color_i = 1,
+    vector vector_i = 1,
+    point point_i = 1,
+    normal normal_i = 1,
+    output int int_o = 1,
+    output float float_o = 1,
+    output color color_o = 1,
+    output vector vector_o = 1,
+    output point point_o = 1,
+    output normal normal_o = 1
+)
+{
+    int_o = int_i;
+    float_o = float_i;
+    color_o = color_i;
+    vector_o = vector_i;
+    point_o = point_i;
+    normal_o = normal_i;
+}

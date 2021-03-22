@@ -1,0 +1,18 @@
+shader test_sample_osl_pattern(
+        float noiseScale = 1.0
+        [[float min=0.001, 
+          float slidermax=10]],
+        string noiseType = "cell"
+        [[string widget="popup", 
+          string options="perlin|uperlin|cell|simplex|usimplex|gabor"]],
+        int gAnisotropic = 1
+        [[string widget="checkBox", 
+      string label="Gabor Anisotropic"]],
+        vector gDirection = vector(1.0)
+        [[string label="Gabor Direction"]],
+        output color outColor = 0)
+{
+        outColor = float(noise(noiseType, P/noiseScale,
+                                                   "anisotropic", gAnisotropic,
+                                                   "direction", gDirection));
+}

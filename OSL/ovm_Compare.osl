@@ -1,0 +1,14 @@
+shader ovm_Compare
+(
+    float input1 = 1,
+    float input2 = 0,
+    int operation = 0      
+        [[
+        string widget="popup", 
+        string options="Equal ==|Not Equal !=|Less Than <|Greater Than >|Less Than or Equal <=|Greater Than or Equal >=|"
+        ]],
+    output float result = 1,
+)
+{
+    result = 0;
+}

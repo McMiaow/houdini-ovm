@@ -1,0 +1,19 @@
+shader ovm_Add_Color
+[[
+    string category = "Math" 
+]]
+(
+    color input1 = 1,
+    color input2 = 0,
+    output color resultRGB = 1,
+    output float resultR = 1,
+    output float resultG = 1,
+    output float resultB = 1
+
+)
+{
+    resultRGB = input1 + input2;
+    resultR = resultRGB[0];
+    resultG = resultRGB[1];
+    resultB = resultRGB[2];
+}

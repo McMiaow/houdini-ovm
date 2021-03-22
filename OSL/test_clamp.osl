@@ -1,0 +1,37 @@
+shader test_Clamp[[
+    int rfm_nodeid = 100,
+    string rfm_classification = "rendernode/RenderMan/pattern",
+    string help = "Clamp"
+]]
+(
+    int Active = 1
+        [[
+        string widget = "checkBox",
+        string label = "Active",
+                string help = "Turn off to pass InColourA straight through."
+        ]],
+    color MinClamp = 0
+    [[ 
+                string help = "Min Clamp",
+                float min = 0,
+                float max = 1
+        ]],
+    color MaxClamp = 1
+    [[ 
+                string help = "Max Clamp",
+                float min = 0,
+                float max = 1
+        ]],
+    color InColour = color (0.0),
+    output color OutColour = 0
+)
+{
+    if (Active < 1)
+    {
+        OutColour = InColour;
+    }
+    else
+    {
+        OutColour = clamp (InColour, MinClamp, MaxClamp);
+    }
+}
