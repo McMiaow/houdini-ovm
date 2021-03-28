@@ -1,0 +1,460 @@
+#! C:/Program Files/Nuke11.1v2/nuke-11.1.2.dll -nx
+version 11.1 v2
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="2544" h="1361" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1881" stretch="1"/>
+            <splitter orientation="2">
+                <split size="771"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="542"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name C:/Users/omarv/Documents/houdini-ovm/icons/houdini_launchers/icons.nk
+ project_directory "\[python \{nuke.script_directory()\}]"
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+Read {
+ inputs 0
+ file ./arnold.png
+ format "128 128 0 0 128 128 1 "
+ origset true
+ version 10
+ name Read4
+ xpos -110
+ ypos -335
+}
+set N74f2000 [stack 0]
+Unpremult {
+ name Unpremult1
+ xpos 35
+ ypos -223
+}
+push $N74f2000
+Premult {
+ name Premult1
+ xpos -110
+ ypos -242
+}
+Crop {
+ box {13 0 115 128}
+ name Crop1
+ xpos -110
+ ypos -209
+}
+Reformat {
+ type scale
+ scale 2
+ name Reformat1
+ xpos -110
+ ypos -182
+}
+Transform {
+ scale 1.2
+ center {128 256}
+ name Transform3
+ xpos -110
+ ypos -156
+}
+Read {
+ inputs 0
+ file ./arnold_2.png
+ format "128 128 0 0 128 128 1 "
+ origset true
+ name Read1
+ xpos 180
+ ypos -318
+}
+Premult {
+ name Premult4
+ xpos 180
+ ypos -232
+}
+set N74f3880 [stack 0]
+push $N74f3880
+Shuffle {
+ alpha red
+ name Shuffle1
+ xpos 376
+ ypos -193
+}
+Invert {
+ inputs 1+1
+ channels alpha
+ name Invert1
+ xpos 387
+ ypos -151
+}
+Premult {
+ name Premult5
+ xpos 389
+ ypos -64
+}
+Read {
+ inputs 0
+ file ./cmd.png
+ format "512 512 0 0 512 512 1 square_512"
+ origset true
+ name Read5
+ xpos 625
+ ypos -388
+}
+Premult {
+ name Premult6
+ xpos 625
+ ypos -302
+}
+set N3d34bc00 [stack 0]
+Shuffle {
+ red alpha
+ green alpha
+ blue alpha
+ name Shuffle2
+ xpos 906
+ ypos -268
+ disable true
+}
+push $N3d34bc00
+Transform {
+ translate {-244 -231}
+ scale 0.38
+ center {512 512}
+ name Transform9
+ xpos 625
+ ypos -263
+}
+ColorCorrect {
+ gamma 0.54
+ name ColorCorrect2
+ xpos 625
+ ypos -233
+}
+set N3d34a000 [stack 0]
+Crop {
+ box {111 131.5 223 214}
+ name Crop3
+ xpos 906
+ ypos -192
+}
+Invert {
+ channels rgb
+ name Invert2
+ xpos 906
+ ypos -166
+ disable true
+}
+Reformat {
+ format "256 256 0 0 256 256 1 square_256"
+ scale 2
+ resize fit
+ name Reformat3
+ xpos 906
+ ypos -120
+ disable true
+}
+set N3d34ae00 [stack 0]
+ColorCorrect {
+ gain 0
+ name ColorCorrect1
+ xpos 906
+ ypos -82
+}
+Transform {
+ translate {-104 -51.79999924}
+ scale 0.55
+ center {360 308}
+ name Transform7
+ xpos 906
+ ypos -43
+}
+Read {
+ inputs 0
+ file ./rmaninstaller.png
+ format "256 256 0 0 256 256 1 square_256"
+ origset true
+ name Read3
+ xpos -364
+ ypos -237
+}
+Premult {
+ name Premult2
+ xpos -364
+ ypos -144
+}
+Transform {
+ scale 0.58
+ center {128 128}
+ name Transform1
+ xpos -364
+ ypos -68
+}
+Transform {
+ translate {58 54}
+ center {128 128}
+ name Transform2
+ xpos -364
+ ypos -36
+}
+Read {
+ inputs 0
+ file ./houdini_logo.png
+ format "256 256 0 0 256 256 1 square_256"
+ origset true
+ name Read2
+ xpos -529
+ ypos -175
+}
+Premult {
+ name Premult3
+ xpos -529
+ ypos -89
+}
+set N7541180 [stack 0]
+Merge2 {
+ inputs 2
+ name Merge1
+ xpos -470
+ ypos 15
+}
+Write {
+ channels rgba
+ file ./hman.png
+ file_type png
+ checkHashOnRead false
+ version 4
+ name Write1
+ xpos -470
+ ypos 69
+}
+push $N74f3880
+Crop {
+ box {13 6 115 122}
+ name Crop2
+ xpos 180
+ ypos -192
+}
+Reformat {
+ format "256 256 0 0 256 256 1 square_256"
+ scale 2
+ name Reformat2
+ xpos 180
+ ypos -155
+}
+Transform {
+ translate {0 16}
+ scale 1.2
+ center {128 256}
+ name Transform4
+ xpos 180
+ ypos -92
+}
+Transform {
+ scale 0.61
+ center {128 128}
+ name Transform5
+ xpos 180
+ ypos -48
+}
+Transform {
+ translate {59 49}
+ center {128 128}
+ name Transform6
+ xpos 180
+ ypos -16
+}
+push $N7541180
+Merge2 {
+ inputs 2
+ name Merge2
+ xpos 74
+ ypos 35
+}
+set N7577500 [stack 0]
+Write {
+ channels rgba
+ file ./harnold.png
+ file_type png
+ checkHashOnRead false
+ version 8
+ name Write2
+ xpos 74
+ ypos 77
+}
+push $N3d34ae00
+ColorCorrect {
+ gain 700
+ name ColorCorrect4
+ xpos 822
+ ypos -76
+}
+Transform {
+ translate {32 20}
+ scale 1.2
+ center {256 256}
+ name Transform10
+ xpos 822
+ ypos -50
+}
+push $N3d34a000
+Roto {
+ output alpha
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x44800000 x44428000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Bezier1 512 bezier
+     {{cc
+       {f 8192}
+       {px 1
+        {0 0}
+        {x42bd0000 x43658000}
+        {0 0}
+        {0 0}
+        {x43788000 x43670000}
+        {0 0}
+        {0 0}
+        {x43750000 x42f60000}
+        {0 0}
+        {0 0}
+        {x42bd0000 x42ed0000}
+        {0 0}}}     idem}
+     {tx 1 x432aa000 x432f8000}
+     {a osw x41200000 osf 0 str 1 spx x44800000 spy x44428000 sb 1 tt x40800000}}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_brush_hardness 0.200000003
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {1024 778}
+ colorOverlay {0 0 0 0}
+ lifetime_type "all frames"
+ motionblur_shutter_offset_type centred
+ source_black_outside true
+ name Roto1
+ xpos 625
+ ypos -203
+}
+ColorCorrect {
+ gain 700
+ gain_panelDropped true
+ name ColorCorrect3
+ xpos 625
+ ypos -165
+ disable true
+}
+ColorCorrect {
+ gain 0.65
+ name ColorCorrect5
+ xpos 625
+ ypos -119
+ disable true
+}
+ColorCorrect {
+ channels alpha
+ gain 0.96
+ name ColorCorrect6
+ xpos 625
+ ypos -93
+}
+Merge2 {
+ inputs 2
+ name Merge4
+ xpos 586
+ ypos -31
+}
+Transform {
+ center {256 256}
+ name Transform8
+ xpos 586
+ ypos -5
+}
+push $N7541180
+Merge2 {
+ inputs 2
+ name Merge3
+ xpos 586
+ ypos 56
+}
+set N3d39bc00 [stack 0]
+Reformat {
+ format "256 256 0 0 256 256 1 square_256"
+ black_outside true
+ name Reformat4
+ xpos 586
+ ypos 82
+}
+Write {
+ channels rgba
+ file ./hcmd.png
+ file_type png
+ checkHashOnRead false
+ version 9
+ name Write3
+ xpos 586
+ ypos 150
+}
+push $N3d39bc00
+push $N7577500
+push 0
+Viewer {
+ inputs 3
+ frame 1
+ frame_range 1-100
+ frame_range_lock true
+ colour_sample_bbox {2.125 -0.4921875 2.1328125 -0.484375}
+ samplepoints {{1.35546875 -0.24609375}
+   }
+ translate {2.210000038 0.4900000095}
+ name Viewer1
+ xpos -369
+ ypos 177
+}
