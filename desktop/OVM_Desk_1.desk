@@ -7,39 +7,39 @@ statusbar    -1
 radial menu set main
 root {
     split 0.380078 H {
-        split 0.499175 V {
+        split 0.228548 V {
             tabs 0 1 {
                 pane panetab2 -a 0 -l 1 -H /obj/ -T OBJ -m sceneview
-                pane panetab3 -a 0 -l 10 -H /mat/pxrmaterialbuilder1/ -T VOP -m chaneditor
-                pane panetab4 -a 0 -l 10 -H /mat/pxrmaterialbuilder1/ -T VOP -m iprviewer
+                pane panetab3 -a 0 -l 10 -H /mat/ -T VOP -m chaneditor
+                pane panetab4 -a 0 -l 10 -H /mat/ -T VOP -m iprviewer
                 pane panetab5 -a 0 -l 10 -H /img/ -T IMG -m imageview
                 pane panetab14 -a 0 -l 10 -H /ch/ -T CHOPNET -m channelview
             }
-            tabs 5 1 {
-                pane panetab6 -a 0 -l 1 -H /mat/pxrmaterialbuilder1/ -T VOP -m details
+            tabs 0 1 {
+                pane panetab6 -a 0 -l 1 -H /obj/ -T OBJ -m details
                 pane panetab17 -a 0 -l 0 -H /obj/ -T OBJ -m perfmon
                 pane panetab7 -a 0 -l 0 -H /obj/ -T OBJ -m python
                 pane panetab11 -a 0 -l 0 -H /obj/ -T OBJ -m textport
                 pane panetab12 -a 0 -l 10 -H /out/ -T ROP -m renderview
-                pane panetab13 -a 0 -l 10 -H /mat/pxrmaterialbuilder1/ -T VOP -m iprviewer
+                pane panetab13 -a 0 -l 10 -H /mat/ -T VOP -m iprviewer
             }
         }
         split 0.5 H {
             split 0.5 V {
                 tabs 0 1 {
-                    pane panetab20 -a 0 -l 1 -H /mat/pxrmaterialbuilder1/ -T VOP -m parmeditor
-                    pane panetab10 -a 1 -l 10 -H /mat/pxrmaterialbuilder1/ -T VOP -m pythonpanel
+                    pane panetab20 -a 0 -l 1 -H /obj/ -T OBJ -m parmeditor
+                    pane panetab10 -a 1 -l 10 -H /mat/ -T VOP -m pythonpanel
                 }
                 tabs 0 1 {
-                    pane panetab8 -a 0 -l 1 -H /mat/pxrmaterialbuilder1/ -T VOP -m neteditor
+                    pane panetab8 -a 0 -l 1 -H /obj/ -T OBJ -m neteditor
                 }
             }
             split 0.5 V {
                 tabs 0 1 {
-                    pane panetab1 -a 0 -l 2 -H /mat/materialbuilder1/ -T VOP -m parmeditor
+                    pane panetab1 -a 0 -l 2 -H /mat/ -T VOP -m parmeditor
                 }
                 tabs 0 1 {
-                    pane panetab9 -a 0 -l 2 -H /mat/materialbuilder1/ -T VOP -m neteditor
+                    pane panetab9 -a 0 -l 2 -H /mat/ -T VOP -m neteditor
                 }
             }
         }
@@ -57,6 +57,7 @@ iprview -t 0.1 -l 0 -e 1 -u 1  panetab4
 chopview -a 0 -c "" -k 0 -m 1 -b 1 -e 1 -f 0 -g 0 -H 1 -i 0 -j 1 -l 0 -n 1 -V 0 -y 0 -B 0 -s 0 -S 0.034375 -u 0 -v 0 -h -10 310 -r -1.5 1.5 panetab14
 performance -c on -d on -f on -g off -j on -k on -m off -n on -o on -t off -v on -p on -y on -u on -e off -r absolute -R seconds -w tree panetab17
 ropview -c 1 panetab12
+iprview -t 0.1 -l 0 -e 1 -u 1  panetab13
 parmeditor -T 0.25 -w 0 panetab20
 pythonpanel -s on -t off -n taskgraphtable panetab10
 networkeditor -p '{\n	"showspareinputdep":"1",\n	"showchilddep":"1",\n	"showdep":"0",\n	"showtaskgraphperf":"0",\n	"taskgraphperfstatname":"Cook Time",\n	"perfstatname":"Time",\n	"showperfstats":"1",\n	"grouplistsplit":"0.75",\n	"showtree":"0",\n	"showtypesidebar":"0",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialogmax":"1",\n	"treesplit":"0.25",\n	"palettesize":"150 150",\n	"typesidebarsplit":"0.25",\n	"taskgraphcollapsemode":"Off",\n	"workitemcolorattribute":"",\n	"gridmode":"0",\n	"overviewbounds":"0.000000 0.000000 237.000000 155.700000",\n	"overviewmode":"2",\n	"showgrouplist":"0",\n	"palettemode":"0",\n	"useworkitemcolorattribute":"0",\n	"showtasksmenu":"1",\n	"backgroundimageediting":"0",\n	"backgroundimagebrightness":"1.0",\n	"gridystep":"1.0",\n	"palettecolors":"",\n	"showmenu":"1",\n	"gridxstep":"2.0",\n	"showparmdialog":"0"\n}\n' panetab8
@@ -94,4 +95,3 @@ netcolumns -c delscript,comment -n TOPNET panetab9
 netcolumns -c display,bypass,delscript,comment,input -n LOP panetab9
 netcolumns -c delscript,comment -n MGR panetab9
 netcolumns -c delscript,comment -n DIR panetab9
-iprview -t 0.1 -l 0 -e 1 -u 1  panetab13
