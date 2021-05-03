@@ -1,8 +1,0 @@
-shader ovm_Abs_Vector
-(
-    vector input = 1,
-    output vector resultRGB = 1
-)
-{
-    resultRGB = abs(input);
-}

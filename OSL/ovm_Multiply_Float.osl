@@ -1,0 +1,10 @@
+shader ovm_Multiply_Float
+(
+    float input1 = 1,
+    float input2 = 0,
+    output float result = 1
+
+)
+{
+    result = input1 * input2;
+}

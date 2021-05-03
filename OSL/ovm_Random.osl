@@ -1,0 +1,13 @@
+shader ovm_Random
+(
+    float input = 1,
+    int seed = 0,
+    output color resultRGB = 1,
+    output float resultF = 1
+
+)
+{
+    float value = input + seed;
+    resultRGB = noise("cell", value);
+    resultF = noise("cell", value);
+}

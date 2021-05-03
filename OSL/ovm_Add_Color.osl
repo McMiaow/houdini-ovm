@@ -1,7 +1,4 @@
 shader ovm_Add_Color
-[[
-    string category = "Math" 
-]]
 (
     color input1 = 1,
     color input2 = 0,

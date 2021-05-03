@@ -7,8 +7,37 @@ shader ovm_Compare
         string widget="popup", 
         string options="Equal ==|Not Equal !=|Less Than <|Greater Than >|Less Than or Equal <=|Greater Than or Equal >=|"
         ]],
-    output float result = 1,
+    output float resultF = 0,
+    output int boolean = 0,
 )
 {
-    result = 0;
+    if (operation == 0)
+    {
+        boolean = input1==input2;        
+    }
+    else if (operation == 1)
+    {
+        boolean = input1!=input2;
+    }
+    else if (operation == 2)
+    {
+        boolean = input1<input2;
+    }
+    else if (operation == 3)
+    {
+        boolean = input1>input2;
+    }
+    else if (operation == 4)
+    {
+        boolean = input1<=input2;
+    }
+    else if (operation == 5)
+    {
+        boolean = input1>=input2;
+    }
+    else
+    {
+        boolean = 0;
+    }
+    resultF = boolean;    
 }

@@ -1,0 +1,15 @@
+shader ovm_Surface_Globals
+(
+    output vector Pos = 1,
+    output vector Normal = 1,
+    output vector Normal_g = 1,
+    output float distance_z = 1
+)
+{
+    Pos = transform("world", P);
+    Normal = transform("world", N);
+    Normal_g = transform("world", Ng);
+    vector camera_P = transform("camera", P);
+    distance_z = camera_P[2];
+}
+

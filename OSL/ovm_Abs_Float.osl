@@ -1,0 +1,9 @@
+shader ovm_Abs_Float
+(
+    float input = 1,
+    output float result = 1
+
+)
+{
+    result = abs(input);
+}

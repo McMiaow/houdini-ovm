@@ -1,0 +1,23 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.8.2.pixar1697a56
+# options: -o /home/omar-vm/houdini-ovm/OSL/ovm_Random.oso
+shader ovm_Random
+param	float	input	1		%read{1,1} %write{2147483647,-1}
+param	int	seed	0		%read{0,0} %write{2147483647,-1}
+oparam	color	resultRGB	1 1 1		%read{2147483647,-1} %write{2,2}
+oparam	float	resultF	1		%read{2147483647,-1} %write{3,3}
+local	float	value	%read{2,3} %write{1,1}
+temp	float	$tmp1	%read{1,1} %write{0,0}
+const	string	$const1	"cell"		%read{2,3} %write{2147483647,-1}
+code ___main___
+# houdini-ovm/OSL/ovm_Random.osl:11
+#     resultRGB = noise("cell", value);
+	assign		$tmp1 seed 	%filename{"houdini-ovm/OSL/ovm_Random.osl"} %line{11} %argrw{"wr"}
+	add		value input $tmp1 	%argrw{"wrr"}
+# houdini-ovm/OSL/ovm_Random.osl:12
+#     resultF = noise("cell", value);
+	noise		resultRGB $const1 value 	%line{12} %argrw{"wrr"}
+# houdini-ovm/OSL/ovm_Random.osl:13
+# }
+	noise		resultF $const1 value 	%line{13} %argrw{"wrr"}
+	end

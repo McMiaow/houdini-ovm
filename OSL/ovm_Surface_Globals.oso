@@ -1,0 +1,46 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.8.2.pixar1697a56
+# options: -o /home/omar-vm/houdini-ovm/OSL/ovm_Surface_Globals.oso
+shader ovm_Surface_Globals
+oparam	vector	Pos	1 1 1		%read{2147483647,-1} %write{1,1}
+oparam	vector	Normal	1 1 1		%read{2147483647,-1} %write{3,3}
+oparam	vector	Normal_g	1 1 1		%read{2147483647,-1} %write{5,5}
+oparam	float	distance_z	1		%read{2147483647,-1} %write{8,8}
+global	point	P	%read{1,7} %write{2147483647,-1}
+global	normal	N	%read{3,3} %write{2147483647,-1}
+global	normal	Ng	%read{5,5} %write{2147483647,-1}
+local	vector	camera_P	%read{8,8} %write{7,7}
+const	string	$const1	"world"		%read{1,5} %write{2147483647,-1}
+const	string	$const2	"transform"		%read{0,6} %write{2147483647,-1}
+const	string	$const3	"common"		%read{1,7} %write{2147483647,-1}
+const	string	$const4	"camera"		%read{7,7} %write{2147483647,-1}
+const	int	$const5	2		%read{8,8} %write{2147483647,-1}
+code ___main___
+# houdini-ovm/OSL/ovm_Surface_Globals.osl:10
+#     Normal = transform("world", N);
+	functioncall	$const2 2 	%filename{"houdini-ovm/OSL/ovm_Surface_Globals.osl"} %line{10} %argrw{"r"}
+# /opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h:258
+# 
+	transform	Pos $const3 $const1 P 	%filename{"/opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h"} %line{258} %argrw{"wrrr"}
+# houdini-ovm/OSL/ovm_Surface_Globals.osl:11
+#     Normal_g = transform("world", Ng);
+	functioncall	$const2 4 	%filename{"houdini-ovm/OSL/ovm_Surface_Globals.osl"} %line{11} %argrw{"r"}
+# /opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h:256
+#     vector R, T;
+	transformn	Normal $const3 $const1 N 	%filename{"/opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h"} %line{256} %argrw{"wrrr"}
+# houdini-ovm/OSL/ovm_Surface_Globals.osl:12
+#     vector camera_P = transform("camera", P);
+	functioncall	$const2 6 	%filename{"houdini-ovm/OSL/ovm_Surface_Globals.osl"} %line{12} %argrw{"r"}
+# /opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h:256
+# {
+	transformn	Normal_g $const3 $const1 Ng 	%filename{"/opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h"} %line{256} %argrw{"wrrr"}
+# houdini-ovm/OSL/ovm_Surface_Globals.osl:13
+#     distance_z = camera_P[2];
+	functioncall	$const2 8 	%filename{"houdini-ovm/OSL/ovm_Surface_Globals.osl"} %line{13} %argrw{"r"}
+# /opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h:258
+#     vector R, T;
+	transform	camera_P $const3 $const4 P 	%filename{"/opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h"} %line{258} %argrw{"wrrr"}
+# houdini-ovm/OSL/ovm_Surface_Globals.osl:14
+# }
+	compref		distance_z camera_P $const5 	%filename{"houdini-ovm/OSL/ovm_Surface_Globals.osl"} %line{14} %argrw{"wrr"}
+	end

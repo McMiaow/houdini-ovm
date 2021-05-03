@@ -1,7 +1,0 @@
-shader ovm_Surface_Globals
-(
-    output vector Pos = 1,
-)
-{
-    Pos = transform("world", P);
-}
