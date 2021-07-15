@@ -5,11 +5,8 @@
         {
             "HOUDINI_PATH": 
             {
-                "method": "prepend", 
-                "value": 
-                [
-                    "$HOME/houdini-ovm"
-                ]
+                "value": "$HOME/houdini-ovm",
+                "method": "prepend"
             }
         }
     ]

@@ -2,6 +2,8 @@
     "enable": "$RENDERER == 'renderman'",
     "env" :
     [
+        {"RMANTREE" : ""},
+        {"RFHTREE" : ""},
         {
             "RMANTREE" :
             [
@@ -16,8 +18,14 @@
                 {"houdini_os == 'windows'" : "C:/Program Files/Pixar/RenderManForHoudini-${RMAN_VER}"}
             ]
         },
-        {"RMAN_PROCEDURALPATH" : "$RFHTREE/${HOUDINI_RFH_VER}/openvdb"},
-        {"HOUDINI_PATH" : "$RFHTREE/${HOUDINI_RFH_VER}"},
+        {"RMAN_PROCEDURALPATH" : "$RFHTREE/${HOUDINI_RFH_VER}/openvdb:&"},
+        {
+            "HOUDINI_PATH" :
+            {
+                "value" : "$RFHTREE/${HOUDINI_RFH_VER}",
+                "method": "prepend"
+            }
+        },
         {
             "PATH" :
             [

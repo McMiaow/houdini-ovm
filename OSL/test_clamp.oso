@@ -1,5 +1,5 @@
 OpenShadingLanguage 1.00
-# Compiled by oslc 1.8.2.pixar1697a56
+# Compiled by oslc 1.11.0@OPROJECT_VERSION_RELEASE_TYPE@
 # options: -o /home/omar-vm/houdini-ovm/OSL/test_clamp.oso
 shader test_Clamp	%meta{int,rfm_nodeid,100} %meta{string,rfm_classification,"rendernode/RenderMan/pattern"} %meta{string,help,"Clamp"} 
 param	int	Active	1		%meta{string,widget,"checkBox"} %meta{string,label,"Active"} %meta{string,help,"Turn off to pass InColourA straight through."}  %read{0,0} %write{2147483647,-1}
@@ -22,8 +22,8 @@ code ___main___
 # houdini-ovm/OSL/test_clamp.osl:36
 #     }
 	functioncall	$const2 6 	%line{36} %argrw{"r"}
-# /opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h:144
-# float  log (float a,  float b) { return log(a)/log(b); }
-	min		$tmp2 InColour MaxClamp 	%filename{"/opt/pixar/RenderManProServer-23.5/lib/osl/include/stdosl.h"} %line{144} %argrw{"wrr"}
+# /opt/pixar/RenderManProServer-24.0/lib/osl/include/stdosl.h:162
+# color  clamp (color x, color minval, color maxval) { return max(min(x,maxval),minval); }
+	min		$tmp2 InColour MaxClamp 	%filename{"/opt/pixar/RenderManProServer-24.0/lib/osl/include/stdosl.h"} %line{162} %argrw{"wrr"}
 	max		OutColour $tmp2 MinClamp 	%argrw{"wrr"}
 	end
